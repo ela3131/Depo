@@ -37,6 +37,7 @@
                 {% for anahtar, icerik in veri.items() %}
                 <td>{{ veri[anahtar] }}</td>
                 {% endfor %}
+                <td><a href="/sonlandir/{{ veri['id'] }}"  class="btn btn-danger">Sonlandır</button></td>
                 </tr>
                 {% endfor %}
             </tbody>

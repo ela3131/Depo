@@ -6,7 +6,7 @@ from proje.islem import jsonVeri, anahtarlar
 uname = platform.uname()
 
 @app.route('/')
-def grafik():
+def anaSayfa():
     return render_template('grafik.html', baslik="İşte Bunu Seviyorum",
         sistem = uname.system,
         kullanici = uname.node,
