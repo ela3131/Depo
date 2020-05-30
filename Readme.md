@@ -56,5 +56,7 @@
     liste.reverse()         # ters çevir
     liste.extend(liste2)    # liste2 listesinin elemanlarını listeye ekle
 
-# Tuple Liste
+# Sözlük Metotları
+
+# jSon Tüyoları
     
