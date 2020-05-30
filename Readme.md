@@ -57,6 +57,14 @@
     liste.extend(liste2)    # liste2 listesinin elemanlarını listeye ekle
 
 # Sözlük Metotları
+    sozluk.keys()           # anahtarlar
+    sozluk.values()         # değerler
+    sozluk.items()          # anahtar ve değerler aynı anda döner;
+    
+        for anahtar, deger in sozluk.items():
+            print(f"Anahtar : {anahtar}\tDeğer : {deger}\n")
 
 # jSon Tüyoları
-    
+    jsonVeri = json.loads(pandaVeri.to_json(orient='records'))
+    jsonCikti = json.dumps(jsonVeri, indent=2, sort_keys=False, ensure_ascii=False)
+    anahtarlar = [anahtar for anahtar in jsonVeri[0].keys()]
