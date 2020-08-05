@@ -1,5 +1,9 @@
-requests==2.23.0
+Pyrogram==0.18.0_async
+tgcrypto==1.2.1
+asyncio==3.4.3
+aiohttp==3.6.2
 google_search_client==0.1
-pytz==2019.3
-Pyrogram==0.16.0
-beautifulsoup4==4.9.0
+pyfiglet==0.8.post1
+speedtest_cli==2.1.2
+requests==2.24.0
+rich==5.0.0

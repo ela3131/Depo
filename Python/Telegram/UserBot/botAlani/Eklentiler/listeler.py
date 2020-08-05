@@ -1,12 +1,10 @@
-#!/usr/bin/env python
-#! -*- coding: utf-8 -*-
 # Bu araç @keyiflerolsun tarafından | @BetikSonu için yazılmıştır.
 
 from pyrogram import Client, Filters
 
 @Client.on_message(Filters.command(['admin'],['!','.','/']))
-def admin(client, message):
-    kekik = message.edit("Yönetici Listesini Çıkartıyorum..")
+async def admin(client, message):
+    await message.edit("Yönetici Listesini Çıkartıyorum..")
 
     sohbetTuru = message.chat.type
     if sohbetTuru != "private":
@@ -23,12 +21,12 @@ def admin(client, message):
                     if yonetici.user.username: adminler += f" ⛑ -> @{yonetici.user.username}\n"
                     else: adminler += f" ⛑ -> [{yonetici.user.first_name}](tg://user?id={yonetici.user.id})\n"
                     
-        kekik.edit(f'**Yönetici Listesi**:\n{kurucu}{adminler}', parse_mode="Markdown", disable_web_page_preview=True)
+        await message.edit(f'**Yönetici Listesi**:\n{kurucu}{adminler}', parse_mode="Markdown", disable_web_page_preview=True)
 
 
 @Client.on_message(Filters.command(['bot'],['!','.','/']))
-def bot(client, message):
-    kekik = message.edit("Bot Listesini Çıkartıyorum..")
+async def bot(client, message):
+    await message.edit("Bot Listesini Çıkartıyorum..")
 
     sohbetTuru = message.chat.type
     if sohbetTuru != "private":
@@ -37,12 +35,12 @@ def bot(client, message):
         for bot in client.get_chat_members(message.chat.id, filter="bots"):
             botlar += f" 🤖 -> @{bot.user.username}\n"
 
-        kekik.edit(f'**Bot Listesi**:\n{botlar}', parse_mode="Markdown", disable_web_page_preview=True)
+        await message.edit(f'**Bot Listesi**:\n{botlar}', parse_mode="Markdown", disable_web_page_preview=True)
 
 
 @Client.on_message(Filters.command(['silik'],['!','.','/']))
-def silik(client, message):
-    kekik = message.edit("Silinmiş Hesapları Sayıyorum..")
+async def silik(client, message):
+    await message.edit("Silinmiş Hesapları Sayıyorum..")
 
     sohbetTuru = message.chat.type
     if sohbetTuru != "private":
@@ -52,12 +50,12 @@ def silik(client, message):
             if kisi.user.is_deleted:
                 sayac += 1
 
-        kekik.edit(f'__Silik Üye Sayısı__ : `{sayac}`', disable_web_page_preview=True)
+        await message.edit(f'__Silik Üye Sayısı__ : `{sayac}`', disable_web_page_preview=True)
 
 
 @Client.on_message(Filters.command(['hayalet'],['!','.','/']))
-def hayalet(client, message):
-    kekik = message.edit("Hayalet Hesapları Sayıyorum..")
+async def hayalet(client, message):
+    await message.edit("Hayalet Hesapları Sayıyorum..")
 
     sohbetTuru = message.chat.type
     if sohbetTuru != "private":
@@ -67,4 +65,4 @@ def hayalet(client, message):
             if kisi.user.status in ("long_time_ago", "within_month"):
                 sayac += 1
 
-        kekik.edit(f'__Hayalet üye sayısı__ : `{sayac}`', disable_web_page_preview=True)
+        await message.edit(f'__Hayalet üye sayısı__ : `{sayac}`', disable_web_page_preview=True)

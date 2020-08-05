@@ -1,21 +1,19 @@
-#!/usr/bin/env python
-#! -*- coding: utf-8 -*-
 # Bu araç @keyiflerolsun tarafından | @BetikSonu için yazılmıştır.
 
 from pyrogram import Client, Filters
-from time import time, sleep
+from time import time
 import requests
 
 @Client.on_message(Filters.command(['gg'], ['!','.', '/']))                 # .gg Komutu Kullanıldığı Zaman
-def googleNasilKullanilir(client, message):                                 # fonksiyon oluşturuyoruz
-    kekik = message.edit("Bekleyin..")
+async def googleNasilKullanilir(client, message):                                 # fonksiyon oluşturuyoruz
+    await message.edit("Bekleyin..")
 
     girilen_yazi = message.text                                             # komut ile birlikle mesajı tut
     if len(girilen_yazi.split()) == 1:                                      # eğer sadece komut varsa, girdi yoksa
-        kekik.edit("Arama yapabilmek için kelime girmelisiniz..")           # uyarı ver
+        await message.edit("Arama yapabilmek için kelime girmelisiniz..")           # uyarı ver
         return                                                              # geri dön
 
-    kekik.edit("Aranıyor...")                                               # Mesajı Düzenle
+    await message.edit("Aranıyor...")                                               # Mesajı Düzenle
     basla = time()                                                          # Zamanı Başlat
     girdi = " ".join(girilen_yazi.split()[1:])                              # girdiyi komuttan ayrıştır
 
@@ -31,8 +29,8 @@ def googleNasilKullanilir(client, message):                                 # fo
         sure = bitir - basla                                                # Duran - Başlayan Zaman
         mesaj += f"\n\nTepki Süresi : `{str(sure)[:4]} sn`"                 # Mesaja Ekle
         try:                                                                # Dene
-            kekik.edit(mesaj, disable_web_page_preview=True, parse_mode="Markdown")
+            await message.edit(mesaj, disable_web_page_preview=True, parse_mode="Markdown")
         except Exception as hata_mesaji:                                    # Başaramazsan
-            kekik.edit(hata_mesaji)                                         # Hatayı Söyle
+            await message.edit(hata_mesaji)                                         # Hatayı Söyle
     else:                                                                   # Eğer tepki yoksa
-        kekik.edit("Hatalı bişeyler var, daha sonra tekrar deneyin..")      # uyarı ver
+        await message.edit("Hatalı bişeyler var, daha sonra tekrar deneyin..")      # uyarı ver
