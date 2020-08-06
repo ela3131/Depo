@@ -9,7 +9,7 @@ async def sistem(client, message):
     await asyncio.sleep(0.3)
     await message.edit("‌‌‎__asyncio.sleep(0.3)__")
 
-    mesaj = f"""__Kullanıcı :__ `{os.getlogin()}@{platform.node()}``
+    mesaj = f"""__Kullanıcı :__ `{os.getlogin()}@{platform.node()}`
 __IP :__ `{requests.get('http://ip.42.pl/raw').text}`
 __OS :__ `{platform.system()} | {platform.release()}`
 __İşlemci :__ `{platform.processor()}`"""
