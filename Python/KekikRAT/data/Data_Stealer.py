@@ -462,7 +462,7 @@ app = tkinter.Tk()  # tkinter penceremizi açtık
 
 ######## veya
 image = tkinter.PhotoImage(data=req.urlopen(
-    "https://raw.githubusercontent.com/KekikAkademi/GUI/master/Tkinter/lol.png.txt"
+    "https://raw.githubusercontent.com/keyiflerolsun/Depo/master/Python/05_Tkinter/lol.png.txt"
                                                 ).read())
 
 ######## veya
