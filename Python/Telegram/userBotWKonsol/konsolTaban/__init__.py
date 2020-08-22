@@ -83,6 +83,8 @@ def bildirim():
         pass
     elif bellenim_surumu.split('-')[-1] == 'aws':
         pass
+    elif platform.machine() == "aarch64":
+        pass 
     elif isletim_sistemi == "Windows" and bellenim_surumu >= "10":
         from win10toast import ToastNotifier
         bildirim = ToastNotifier()

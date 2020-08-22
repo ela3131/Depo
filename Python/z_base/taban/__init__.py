@@ -49,9 +49,9 @@ ip_req = requests.get('http://ip.42.pl/raw')    # Harici IP'yi bulmak için bir 
 ip = ip_req.text                                # ip Adresi
 
 ust_bilgi = f"""
-                    {Fore.LIGHTBLACK_EX}{kullanici_adi} {Fore.LIGHTGREEN_EX}({ip})
-                      {Fore.LIGHTRED_EX}{cihaz} 
-                          {Fore.YELLOW}{zaman}
+                         {Fore.LIGHTBLACK_EX}{kullanici_adi} {Fore.LIGHTGREEN_EX}({ip})
+                            {Fore.LIGHTRED_EX}{cihaz} 
+                                {Fore.YELLOW}{zaman}
     """                                         # Üst Bilgimiz
 #-----------------------------------------------#
 
@@ -83,6 +83,8 @@ def bildirim():
         pass
     elif bellenim_surumu.split('-')[-1] == 'aws':
         pass
+    elif platform.machine() == "aarch64":
+        pass 
     elif isletim_sistemi == "Windows" and bellenim_surumu >= "10":
         from win10toast import ToastNotifier
         bildirim = ToastNotifier()
