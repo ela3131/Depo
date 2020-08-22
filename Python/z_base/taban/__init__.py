@@ -78,9 +78,11 @@ pencereBasligi()                                                            # Pe
 #---------------------------------------------------------------------------#
 
 #----------------------------------------------------#
-def bildirim():                              # WindowsBildirimi adında bir metod oluşturduk
-    if isletim_sistemi == "Windows" and bellenim_surumu >= "10":    # Windows ve 10'a büyük eşitse
-        from win10toast import ToastNotifier         # Windows'a bildirim göndermek için
+def bildirim():
+    if kullanici_adi == "gitpod":
+        pass
+    elif isletim_sistemi == "Windows" and bellenim_surumu >= "10":
+        from win10toast import ToastNotifier
         bildirim = ToastNotifier()
         bildirim.show_toast(f"{pencere_basligi}", f"{bildirim_metni}",
             icon_path=None, duration=10, threaded=True
