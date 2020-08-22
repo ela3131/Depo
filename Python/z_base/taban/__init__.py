@@ -81,6 +81,8 @@ pencereBasligi()                                                            # Pe
 def bildirim():
     if kullanici_adi == "gitpod":
         pass
+    elif bellenim_surumu.split('-')[-1] == 'aws':
+        pass
     elif isletim_sistemi == "Windows" and bellenim_surumu >= "10":
         from win10toast import ToastNotifier
         bildirim = ToastNotifier()
