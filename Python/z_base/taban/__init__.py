@@ -16,7 +16,8 @@ from time import sleep          # Uyku Vakti
 
 #---------------------------------------------------------------#
 ## GenelDegiskenler
-pencere_basligi = "@KekikAkademi base code"        # Pencere Başlığımız
+pencere_basligi = "@KekikAkademi base code"
+bildirim_metni  = "Bu bir bildirim metnidir"
 logo = '''
          _                                        _
         | |                                      | |      
@@ -77,14 +78,19 @@ pencereBasligi()                                                            # Pe
 #---------------------------------------------------------------------------#
 
 #----------------------------------------------------#
-def windowsBildirimi():                              # WindowsBildirimi adında bir metod oluşturduk
+def bildirim():                              # WindowsBildirimi adında bir metod oluşturduk
     if isletim_sistemi == "Windows" and bellenim_surumu >= "10":    # Windows ve 10'a büyük eşitse
         from win10toast import ToastNotifier         # Windows'a bildirim göndermek için
         bildirim = ToastNotifier()
-        bildirim.show_toast(f"{pencere_basligi}", "Başlıyoruz :)",
+        bildirim.show_toast(f"{pencere_basligi}", f"{bildirim_metni}",
             icon_path=None, duration=10, threaded=True
             )
+    elif isletim_sistemi == "Linux":
+        import notify2
+        notify2.init(pencere_basligi)
+        bildirim = notify2.Notification(f"{pencere_basligi}", f"{bildirim_metni}", "notification-message-im")
+        bildirim.show()
     else:
         pass
-windowsBildirimi()
+bildirim()
 #----------------------------------------------------#
